@@ -1,0 +1,277 @@
+@font-face {
+  font-family: "Alegreya";
+  src: url("fonts/Alegreya-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alegreya";
+  src: url("fonts/Alegreya-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("fonts/AlegreyaSans-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --bg: #eee9e4;
+  --grey: #e5e0dc;
+  --sand: #ddcca4;
+  --peach: #f2cc8e;
+  --text: #314b3e;
+  --olive: #919972;
+  --accent: #e17f38;
+  --accent-dark: #c4652a;
+  --serif: "Alegreya", Georgia, serif;
+  --sans: "Alegreya Sans", Helvetica, Arial, sans-serif;
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.75;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-decoration: none; }
+.legal a, .location .card a { text-decoration: underline; }
+a:hover { color: var(--accent-dark); }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+.wrap { max-width: 1024px; margin: 0 auto; padding: 0 20px; }
+
+/* Shared type */
+h1 {
+  font-weight: 400;
+  color: var(--olive);
+  font-size: 44px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+h2 {
+  font-weight: 400;
+  color: var(--accent);
+  font-size: 25px;
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+h4 { font-weight: 700; font-size: 17px; margin: 0 0 10px; }
+.caps {
+  font-family: var(--sans);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+}
+h3.caps { color: var(--accent); font-size: 22px; margin: 0 0 14px; }
+.label { font-size: 15px; margin: 0 0 8px; }
+ul { margin: 0 0 1em; padding-left: 18px; }
+li { margin: 0; }
+.card {
+  background: var(--grey);
+  border-radius: var(--radius);
+  padding: 25px;
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 15px;
+  line-height: 1.5;
+  text-decoration: none;
+  border: 1px solid currentColor;
+  padding: 4px 10px;
+  color: var(--text);
+}
+.button.alt { color: var(--accent); }
+.button:hover { background: rgba(255, 255, 255, 0.3); color: inherit; }
+.button svg { width: 15px; height: 15px; flex: none; }
+.buttons { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+
+/* Header and intro */
+.top { display: grid; grid-template-columns: 292px 1fr; gap: 0 54px; padding-top: 20px; }
+.top .logo img { width: 263px; }
+.top nav { display: flex; flex-wrap: wrap; gap: 6px 22px; padding-top: 30px; }
+.top nav a {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 15px;
+  text-decoration: none;
+}
+.intro { grid-column: 2; margin-top: -60px; padding-bottom: 60px; }
+.intro .caps { font-size: 16px; margin-bottom: 10px; }
+
+/* Slider */
+.slider { position: relative; }
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.slides::-webkit-scrollbar { display: none; }
+.slides figure {
+  flex: 0 0 100%;
+  margin: 0;
+  scroll-snap-align: start;
+  height: 800px;
+  max-height: 90vh;
+  background: #222;
+}
+.slides img { width: 100%; height: 100%; object-fit: cover; }
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 54px;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.slider .prev { left: 12px; }
+.slider .next { right: 12px; }
+
+/* Booking card, overlapping the first slider */
+.booking {
+  position: relative;
+  z-index: 2;
+  width: 500px;
+  max-width: 100%;
+  margin: -64px 0 0 -10px;
+  background: var(--sand);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+.booking h3.caps { margin-bottom: 10px; }
+.booking .where { color: var(--olive); line-height: 1.6; margin-bottom: 18px; }
+
+/* Accommodation */
+.accommodation { display: grid; grid-template-columns: 328px 1fr; padding-top: 50px; }
+.accommodation > div:first-child { padding: 25px 52px 0 0; }
+.accommodation .card { display: grid; grid-template-columns: 1fr 1fr; gap: 0 50px; }
+.accommodation .card .label { grid-column: 1 / -1; margin-bottom: 18px; }
+.accommodation .label { margin-top: 24px; }
+.accommodation .card .label { margin-top: 0; }
+
+/* Location and the overlapping "Getting here" card */
+.location { display: grid; grid-template-columns: 1fr 335px; gap: 0 107px; padding-top: 75px; }
+.location .text { padding-top: 18px; }
+.location .side { position: relative; padding-bottom: 130px; }
+.location .side .card { min-height: 100%; padding-bottom: 140px; }
+.location .side .card .label { margin-top: 32px; }
+.location .side .card .label:first-child { margin-top: 0; }
+.getting-here {
+  position: absolute;
+  z-index: 2;
+  left: 76px;
+  bottom: 0;
+  width: 299px;
+  background: var(--peach);
+  border-radius: var(--radius);
+  padding: 30px;
+}
+.getting-here h3.caps { font-size: 19px; margin-bottom: 8px; }
+.getting-here .pin {
+  position: absolute;
+  top: -57px;
+  right: -49px;
+  width: 123px;
+}
+.second-slider { margin-top: 70px; }
+
+/* Magic card, overlapping the second slider */
+.magic {
+  position: relative;
+  z-index: 2;
+  width: 500px;
+  max-width: 100%;
+  margin: -67px -10px 0 auto;
+  background: var(--sand);
+  border-radius: var(--radius);
+  padding: 30px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* About: photo overlapping the grey card */
+.about { position: relative; max-width: 562px; margin: 40px auto 0; padding-top: 138px; left: 70px; }
+.about img {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -135px;
+  width: 260px;
+  border-radius: var(--radius);
+}
+.about .card { padding: 75px 25px 25px; }
+
+/* Contact and footer */
+.contact { display: grid; grid-template-columns: 292px 1fr; gap: 0 54px; padding: 110px 20px 60px; align-items: start; }
+.contact .logo { width: 263px; margin-left: 29px; margin-top: -40px; }
+.contact .label { color: var(--text); margin: 50px 0 8px; }
+.contact hr { width: 125px; margin: 30px 0 18px; border: 0; border-top: 1px solid var(--olive); }
+.legal-links a {
+  display: block;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 13px;
+  line-height: 2.5;
+  color: var(--olive);
+  text-decoration: none;
+}
+.legal-links a:hover { color: var(--accent); }
+
+/* Legal pages */
+.legal { max-width: 760px; padding-bottom: 40px; }
+.legal h2 { font-size: 21px; margin-top: 32px; }
+.legal h4 { margin-top: 18px; }
+.legal-footer { padding: 20px 20px 60px; }
+.legal-footer .legal-links { display: flex; flex-wrap: wrap; gap: 0 28px; }
+
+@media (max-width: 980px) {
+  .top, .contact { grid-template-columns: 1fr; }
+  .top .logo img { width: 212px; }
+  .top nav { padding-top: 16px; }
+  .intro { grid-column: 1; margin-top: 30px; }
+  h1 { font-size: 34px; }
+  .slides figure { height: 460px; }
+  .booking { margin: -90px auto 0; }
+  .accommodation, .location { grid-template-columns: 1fr; gap: 40px; }
+  .accommodation > div:first-child { padding: 0; }
+  .location .side { max-width: 380px; }
+  .location .side .card { padding-bottom: 60px; min-height: 0; }
+  .getting-here { position: relative; left: auto; margin: -40px 0 0 auto; width: 300px; max-width: 85%; }
+  .location .side { padding-bottom: 0; }
+  .getting-here .pin { width: 92px; top: 0; right: -10px; transform: translateY(-40%); }
+  .magic { margin: -67px auto 0; }
+  .about { left: 0; margin-top: 60px; padding-top: 98px; }
+  .about img { left: -5px; }
+  .contact { padding-top: 120px; }
+  .contact .logo { width: 188px; margin: -100px 0 0 0; }
+  .contact .label { margin-top: 20px; }
+}
+
+@media (max-width: 600px) {
+  .accommodation .card { grid-template-columns: 1fr; }
+  .booking, .magic { padding: 25px; }
+}
