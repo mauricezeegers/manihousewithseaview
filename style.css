@@ -96,7 +96,10 @@ li { margin: 0; }
   padding: 4px 10px;
   color: var(--text);
 }
-.button.alt { color: var(--accent); }
+.button.solid { background: var(--text); border-color: var(--text); color: var(--bg); }
+.button.solid:hover { background: var(--text); color: var(--bg); opacity: 0.9; }
+.buttons .note { margin: -6px 0 0; font-size: 16px; line-height: 1.5; color: var(--olive); }
+.buttons .note a { color: inherit; text-decoration: underline; }
 .button:hover { background: rgba(255, 255, 255, 0.3); color: inherit; }
 .button svg { width: 15px; height: 15px; flex: none; }
 .buttons { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
